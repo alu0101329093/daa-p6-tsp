@@ -3,8 +3,9 @@
 namespace daa {
 
 TspSolution::TspSolution(const std::vector<std::string>& path,
-                         const std::chrono::milliseconds& time)
-    : path_{ConvertVectorPathToString(path)}, time_{time} {}
+                         const std::chrono::milliseconds& time,
+                         std::size_t cost)
+    : path_{ConvertVectorPathToString(path)}, time_{time}, cost_{} {}
 
 void TspSolution::SetPath(const std::vector<std::string>& path) {
   path_ = ConvertVectorPathToString(path);

@@ -9,10 +9,10 @@ class TspPath {
  public:
   TspPath(const std::string& first_node, const std::string& second_node);
 
+  inline const std::string& GetFirstNode() const { return first_node_; }
   inline void SetFirstNode(const std::string& node) { first_node_ = node; }
-  inline const std::string& GetFirstNode() { return first_node_; }
+  inline const std::string& GetSecondNode() const { return second_node_; }
   inline void SetSecondNode(const std::string& node) { second_node_ = node; }
-  inline const std::string& GetSecondNode() { return second_node_; }
 
   friend bool operator<(const TspPath& first_path, const TspPath& second_path) {
     return first_path.first_node_ < second_path.first_node_ ||

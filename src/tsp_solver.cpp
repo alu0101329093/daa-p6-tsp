@@ -12,8 +12,10 @@ TspSolver::TspSolver(const std::string& file_name)
 void TspSolver::SetAlgorithm(TspAlgorithms algorithm) {
   switch (algorithm) {
     case TspAlgorithms::kBruteForce:
+      algorithm_.reset(new TspBruteForce{});
       break;
     case TspAlgorithms::kGreedy:
+      algorithm_.reset(new TspGreedy{});
       break;
     case TspAlgorithms::kDynamic:
       break;

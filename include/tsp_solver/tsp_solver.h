@@ -9,6 +9,8 @@
 #include <vector>
 
 #include "tsp_algorithms/tsp_algorithm.h"
+#include "tsp_algorithms/tsp_brute_force.h"
+#include "tsp_algorithms/tsp_greedy.h"
 #include "tsp_algorithms/unknown_tsp_algorithm_exception.h"
 #include "tsp_solver/tsp_path.h"
 #include "utils.h"
@@ -22,7 +24,7 @@ struct NamedTspSolution {
 
 enum class TspAlgorithms { kBruteForce = 0, kGreedy, kDynamic };
 
-const std::size_t kTspAlgorithmsAmount = 3;
+const std::size_t kTspAlgorithmsAmount = 2;
 
 class TspSolver {
  public:

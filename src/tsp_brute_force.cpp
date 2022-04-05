@@ -6,7 +6,7 @@ TspSolution TspBruteForce::Execute(
     const std::set<std::string>& nodes_list,
     const std::map<TspPath, std::size_t>& path_costs) {
   const auto start_time = std::chrono::steady_clock::now();
-  std::size_t min_cost{INT_MAX};
+  std::size_t min_cost{SIZE_MAX};
   std::vector<std::string> min_path{};
   std::vector<std::string> nodes(nodes_list.begin(), nodes_list.end());
   std::vector<std::string> search_nodes(nodes.begin() + 1, nodes.end());
@@ -26,6 +26,7 @@ TspSolution TspBruteForce::Execute(
       actual_path.push_back(node);
     }
     actual_cost += path_costs.at(TspPath{actual_node, nodes[0]});
+    actual_path.push_back(nodes[0]);
     if (actual_cost < min_cost) {
       min_cost = actual_cost;
       min_path = actual_path;

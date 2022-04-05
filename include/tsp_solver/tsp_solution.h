@@ -19,7 +19,7 @@ class TspSolution {
   inline const std::chrono::milliseconds& GetTime() const { return time_; }
   inline void SetTime(const std::chrono::milliseconds& time) { time_ = time; }
   inline std::size_t GetCost() const { return cost_; }
-  inline std::size_t SetCost(std::size_t cost) { cost_ = cost; }
+  inline void SetCost(std::size_t cost) { cost_ = cost; }
 
  private:
   std::string ConvertVectorPathToString(

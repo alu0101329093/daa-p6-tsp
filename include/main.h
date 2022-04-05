@@ -7,6 +7,7 @@
 #include <vector>
 
 #include "instance_generator/instance_generator.h"
+#include "tsp_algorithms/tsp_algorithm.h"
 #include "tsp_solver/tsp_solver.h"
 
 struct FileSolutions {
@@ -15,6 +16,9 @@ struct FileSolutions {
 };
 
 void CheckGeneration(const std::string& path);
+
+void ShowTable(
+    const std::map<std::size_t, std::vector<FileSolutions>>& files_solutions);
 
 int main(int argc, char* argv[]);
 

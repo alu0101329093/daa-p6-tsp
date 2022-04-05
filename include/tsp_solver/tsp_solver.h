@@ -36,12 +36,15 @@ class TspSolver {
   void LoadFile(const std::string& file_name);
   std::vector<NamedTspSolution> Solve();
 
+  inline std::size_t GetSize() {return size_;}
+
  private:
   void ChangeProblem(const std::string& file_name);
 
   std::set<std::string> nodes_list_;
   std::map<TspPath, std::size_t> path_costs_;
   std::unique_ptr<TspAlgorithm> algorithm_;
+  std::size_t size_;
 };
 
 }  // namespace daa

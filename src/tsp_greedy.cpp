@@ -12,14 +12,15 @@ TspSolution TspGreedy::Execute(
   std::size_t actual_cost{0};
   std::vector<std::string> actual_path{actual_node};
   do {
-    auto actual_time = std::chrono::steady_clock::now();
-    auto execution_time = std::chrono::duration_cast<std::chrono::milliseconds>(
-        actual_time - start_time);
-    if (execution_time >= kAlgotithmMaxExecutionTime)
-      return TspSolution{actual_path, execution_time, actual_cost};
     std::string min_node{""};
     std::size_t min_cost{SIZE_MAX};
     for (const auto& node : search_nodes) {
+      auto actual_time = std::chrono::steady_clock::now();
+      auto execution_time =
+          std::chrono::duration_cast<std::chrono::milliseconds>(actual_time -
+                                                                start_time);
+      if (execution_time >= kAlgorithmMaxExecutionTime)
+        return TspSolution{actual_path, execution_time, actual_cost};
       std::size_t cost = path_costs.at(TspPath{actual_node, node});
       if (cost < min_cost) {
         min_cost = cost;

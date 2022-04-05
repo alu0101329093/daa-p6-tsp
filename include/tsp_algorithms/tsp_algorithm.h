@@ -11,9 +11,9 @@
 
 namespace daa {
 
-const auto kAlgotithmMaxExecutionTime =
+const auto kAlgorithmMaxExecutionTime =
     std::chrono::duration_cast<std::chrono::milliseconds>(
-        std::chrono::minutes{5});
+        std::chrono::seconds{30});
 
 class TspAlgorithm {
  public:

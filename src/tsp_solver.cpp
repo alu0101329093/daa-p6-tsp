@@ -2,10 +2,10 @@
 
 namespace daa {
 
-TspSolver::TspSolver() : nodes_list_{}, path_costs_{}, algorithm_{} {}
+TspSolver::TspSolver() : nodes_list_{}, path_costs_{}, algorithm_{}, size_{} {}
 
 TspSolver::TspSolver(const std::string& file_name)
-    : nodes_list_{}, path_costs_{}, algorithm_{} {
+    : nodes_list_{}, path_costs_{}, algorithm_{}, size_{} {
   ChangeProblem(file_name);
 }
 
@@ -45,6 +45,7 @@ void TspSolver::ChangeProblem(const std::string& file_name) {
   std::ifstream input_file{file_name};
   std::size_t nodes_amount{};
   input_file >> nodes_amount;
+  size_ = nodes_amount;
 
   std::size_t paths_amount{NumberSummatory(nodes_amount)};
   std::string first_node{}, second_node{};

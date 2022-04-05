@@ -7,12 +7,13 @@ void InstanceGenerator::GenerateInstaces(std::size_t nodes_amount,
                                          const std::string& folder_path) const {
   std::srand(std::time(nullptr));
   for (std::size_t i = 0; i < files_amount; ++i) {
+    std::size_t file_node_amount = std::rand() % (nodes_amount - 2) + 3;
     std::ofstream generated_file{folder_path + "generated-" +
                                  std::to_string(i) + ".txt"};
-    generated_file << nodes_amount << "\n";
-    for (std::size_t node = 0; node < nodes_amount - 1; ++node) {
+    generated_file << file_node_amount << "\n";
+    for (std::size_t node = 0; node < file_node_amount - 1; ++node) {
       std::string node_identifier{GetNodeIndentifier(node)};
-      for (std::size_t j = node + 1; j < nodes_amount; ++j) {
+      for (std::size_t j = node + 1; j < file_node_amount; ++j) {
         generated_file << node_identifier << " " << GetNodeIndentifier(j) << " "
                        << GenerateRandomCost() << "\n";
       }

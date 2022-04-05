@@ -3,6 +3,7 @@
 
 #include <algorithm>
 #include <chrono>
+#include <climits>
 
 #include "tsp_algorithms/tsp_algorithm.h"
 

@@ -32,6 +32,7 @@ TspSolution TspGreedy::Execute(
     actual_node = min_node;
   } while (!search_nodes.empty());
   actual_cost += path_costs.at(TspPath{actual_node, nodes[0]});
+  actual_path.push_back(nodes[0]);
   auto actual_time = std::chrono::steady_clock::now();
   auto execution_time = std::chrono::duration_cast<std::chrono::milliseconds>(
       actual_time - start_time);

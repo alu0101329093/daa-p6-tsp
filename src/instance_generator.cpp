@@ -5,6 +5,7 @@ namespace daa {
 void InstanceGenerator::GenerateInstaces(std::size_t nodes_amount,
                                          std::size_t files_amount,
                                          const std::string& folder_path) const {
+  std::srand(std::time(nullptr));
   for (std::size_t i = 0; i < files_amount; ++i) {
     std::ofstream generated_file{folder_path + "generated-" +
                                  std::to_string(i) + ".txt"};
@@ -12,7 +13,7 @@ void InstanceGenerator::GenerateInstaces(std::size_t nodes_amount,
     for (std::size_t node = 0; node < nodes_amount - 1; ++node) {
       std::string node_identifier{GetNodeIndentifier(node)};
       for (std::size_t j = node + 1; j < nodes_amount; ++j) {
-        generated_file << node_identifier << GetNodeIndentifier(j)
+        generated_file << node_identifier << " " << GetNodeIndentifier(j) << " "
                        << GenerateRandomCost() << "\n";
       }
     }
@@ -25,7 +26,6 @@ std::string InstanceGenerator::GetNodeIndentifier(std::size_t index) const {
 }
 
 std::size_t InstanceGenerator::GenerateRandomCost() const {
-  std::srand(std::time(nullptr));
   return std::rand() % 100 + 1;
 }
 

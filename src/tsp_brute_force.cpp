@@ -37,4 +37,6 @@ TspSolution TspBruteForce::Execute(
   return TspSolution{min_path, execution_time, min_cost};
 }
 
+std::string TspBruteForce::GetName() const { return "Brute Force"; }
+
 }  // namespace daa
